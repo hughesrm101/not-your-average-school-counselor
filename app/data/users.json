@@ -1,0 +1,57 @@
+[
+  {
+    "id": "user-1",
+    "email": "admin@nyasc.com",
+    "name": "Admin User",
+    "firstName": "Admin",
+    "lastName": "User",
+    "roles": [
+      "superadmin"
+    ],
+    "status": "active",
+    "emailVerified": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "lastLoginAt": "2024-01-15T10:00:00Z",
+    "referralCode": "ADM001",
+    "preferences": {
+      "topics": [
+        "SEL",
+        "Crisis Intervention",
+        "College Prep"
+      ],
+      "frequency": "weekly",
+      "notifications": {
+        "email": true,
+        "marketing": true,
+        "updates": true
+      }
+    }
+  },
+  {
+    "id": "user-2",
+    "email": "counselor@example.com",
+    "name": "Jane Smith",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "roles": [
+      "user"
+    ],
+    "status": "active",
+    "emailVerified": true,
+    "createdAt": "2024-01-05T00:00:00Z",
+    "lastLoginAt": "2024-01-14T15:30:00Z",
+    "referralCode": "JAN002",
+    "preferences": {
+      "topics": [
+        "SEL",
+        "Mental Health"
+      ],
+      "frequency": "monthly",
+      "notifications": {
+        "email": true,
+        "marketing": false,
+        "updates": true
+      }
+    }
+  }
+]
