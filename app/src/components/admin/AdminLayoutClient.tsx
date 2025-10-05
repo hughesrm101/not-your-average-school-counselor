@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { getCurrentUser } from '@/lib/auth-server'
-import { requireAdmin } from '@/lib/rbac'
 import AdminSidebar from '@/components/admin/AdminSidebar'
 import AdminHeader from '@/components/admin/AdminHeader'
 
@@ -19,20 +17,23 @@ export default function AdminLayoutClient({
   useEffect(() => {
     async function checkAuth() {
       try {
-        const currentUser = await getCurrentUser()
+        const response = await fetch('/api/auth/me')
         
-        if (!currentUser) {
+        if (!response.ok) {
           router.push('/auth/login?redirect=/admin')
           return
         }
 
-        try {
-          await requireAdmin(currentUser)
-          setUser(currentUser)
-        } catch {
+        const { user: currentUser } = await response.json()
+        
+        // Check if user is admin by trying to access admin stats
+        const adminResponse = await fetch('/api/admin/stats')
+        if (!adminResponse.ok) {
           router.push('/account')
           return
         }
+
+        setUser(currentUser)
       } catch (error) {
         console.error('Error checking admin auth:', error)
         router.push('/auth/login?redirect=/admin')

@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getCurrentUser } from '@/lib/auth-server'
-import { requireAdmin } from '@/lib/rbac'
-import { getAllProducts } from '@/lib/db/dynamo'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import Link from 'next/link'
@@ -13,27 +11,38 @@ export default function ProductsPageClient() {
   const [user, setUser] = useState<any>(null)
   const [products, setProducts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
     async function loadData() {
       try {
-        const currentUser = await getCurrentUser()
-        if (currentUser) {
-          await requireAdmin(currentUser)
-          setUser(currentUser)
-          
-          const allProducts = await getAllProducts()
-          setProducts(allProducts)
+        // Get current user
+        const userResponse = await fetch('/api/auth/me')
+        if (!userResponse.ok) {
+          router.push('/auth/login?redirect=/admin/products')
+          return
         }
+        const { user: currentUser } = await userResponse.json()
+        setUser(currentUser)
+        
+        // Get products
+        const productsResponse = await fetch('/api/admin/products')
+        if (!productsResponse.ok) {
+          router.push('/account')
+          return
+        }
+        const { products: allProducts } = await productsResponse.json()
+        setProducts(allProducts)
       } catch (error) {
         console.error('Error loading products data:', error)
+        router.push('/auth/login?redirect=/admin/products')
       } finally {
         setLoading(false)
       }
     }
 
     loadData()
-  }, [])
+  }, [router])
 
   if (loading) {
     return (

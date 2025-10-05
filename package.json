@@ -1,0 +1,23 @@
+{
+  "name": "nyasc-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Not Your Average School Counselor - Complete Platform",
+  "workspaces": [
+    "app",
+    "infra"
+  ],
+  "scripts": {
+    "dev": "cd app && npm run dev",
+    "build": "cd app && npm run build",
+    "start": "cd app && npm run start",
+    "test": "cd app && npm run test",
+    "lint": "cd app && npm run lint",
+    "deploy:infra": "cd infra && npm run deploy",
+    "destroy:infra": "cd infra && npm run destroy"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

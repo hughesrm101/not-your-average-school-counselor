@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getCurrentUser } from '@/lib/auth-server'
-import { requireAdmin } from '@/lib/rbac'
-import { getDashboardStats } from '@/lib/db/dynamo'
+import { useRouter } from 'next/navigation'
 import AdminStats from '@/components/admin/AdminStats'
 import RecentOrders from '@/components/admin/RecentOrders'
 import RecentPosts from '@/components/admin/RecentPosts'
@@ -13,27 +11,38 @@ export default function AdminDashboardClient() {
   const [user, setUser] = useState<any>(null)
   const [stats, setStats] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
     async function loadData() {
       try {
-        const currentUser = await getCurrentUser()
-        if (currentUser) {
-          await requireAdmin(currentUser)
-          setUser(currentUser)
-          
-          const dashboardStats = await getDashboardStats()
-          setStats(dashboardStats)
+        // Get current user
+        const userResponse = await fetch('/api/auth/me')
+        if (!userResponse.ok) {
+          router.push('/auth/login?redirect=/admin')
+          return
         }
+        const { user: currentUser } = await userResponse.json()
+        setUser(currentUser)
+        
+        // Get dashboard stats
+        const statsResponse = await fetch('/api/admin/stats')
+        if (!statsResponse.ok) {
+          router.push('/account')
+          return
+        }
+        const { stats: dashboardStats } = await statsResponse.json()
+        setStats(dashboardStats)
       } catch (error) {
         console.error('Error loading admin data:', error)
+        router.push('/auth/login?redirect=/admin')
       } finally {
         setLoading(false)
       }
     }
 
     loadData()
-  }, [])
+  }, [router])
 
   if (loading) {
     return (

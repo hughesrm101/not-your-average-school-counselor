@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getCurrentUser } from '@/lib/auth-server'
-import { requireAdmin } from '@/lib/rbac'
-import { getAllProducts } from '@/lib/db/dynamo'
 
 export async function GET(request: NextRequest) {
   try {
@@ -11,12 +9,9 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    await requireAdmin(user)
-    const products = await getAllProducts()
-
-    return NextResponse.json({ products })
+    return NextResponse.json({ user })
   } catch (error) {
-    console.error('Error getting products:', error)
+    console.error('Error getting current user:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
