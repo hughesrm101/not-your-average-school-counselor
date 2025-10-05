@@ -4,7 +4,7 @@ const nextConfig = {
     serverComponentsExternalPackages: ['@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'],
   },
   images: {
-    domains: ['localhost', 'yourdomain.com', 'www.yourdomain.com'],
+    domains: ['localhost', 'nyasc.co', 'www.nyasc.co', 'd1xjae1oqckorv.amplifyapp.com'],
     formats: ['image/webp', 'image/avif'],
   },
   async headers() {
