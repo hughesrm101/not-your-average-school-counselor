@@ -25,6 +25,7 @@
     "@aws-sdk/client-ses": "^3.450.0",
     "@aws-sdk/client-sqs": "^3.450.0",
     "@aws-sdk/lib-dynamodb": "^3.450.0",
+    "@aws-sdk/s3-request-presigner": "^3.901.0",
     "@hookform/resolvers": "^3.3.2",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
