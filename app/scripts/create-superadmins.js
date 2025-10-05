@@ -4,7 +4,7 @@ const cognitoClient = new CognitoIdentityProviderClient({
   region: process.env.AWS_REGION || 'us-east-1',
 });
 
-const USER_POOL_ID = process.env.COGNITO_USER_POOL_ID;
+const USER_POOL_ID = process.env.COGNITO_USER_POOL_ID || 'us-east-1_Nb05aFy5j';
 const SUPERADMIN_GROUP = 'superadmin';
 
 async function createSuperAdmin(email, temporaryPassword = 'TempPass123!') {

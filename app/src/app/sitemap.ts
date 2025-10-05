@@ -1,9 +1,7 @@
 import { MetadataRoute } from 'next'
-import { getAllProducts } from '@/lib/db/dynamo'
-import { getAllBlogPosts } from '@/lib/db/dynamo'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://nyasc-counselor.com'
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://nyasc.co'
   
   // Static pages with high priority
   const staticPages: MetadataRoute.Sitemap = [
@@ -26,64 +24,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/privacy`,
+      url: `${baseUrl}/legal/privacy`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms`,
+      url: `${baseUrl}/legal/terms`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/refund`,
+      url: `${baseUrl}/legal/refund`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
   ]
 
-  // Dynamic product pages
-  let productPages: MetadataRoute.Sitemap = []
-  try {
-    const products = await getAllProducts()
-    productPages = products.map((product) => ({
-      url: `${baseUrl}/shop/${product.slug}`,
-      lastModified: new Date(product.updatedAt || product.createdAt),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    }))
-  } catch (error) {
-    console.error('Error fetching products for sitemap:', error)
-  }
-
-  // Dynamic blog pages
-  let blogPages: MetadataRoute.Sitemap = []
-  try {
-    const blogPosts = await getAllBlogPosts()
-    blogPages = blogPosts.map((post) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.updatedAt || post.createdAt),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    }))
-  } catch (error) {
-    console.error('Error fetching blog posts for sitemap:', error)
-  }
+  // Dynamic content will be added at runtime, not during build
+  const productPages: MetadataRoute.Sitemap = []
+  const blogPages: MetadataRoute.Sitemap = []
 
   // Category pages
   const categoryPages: MetadataRoute.Sitemap = [
