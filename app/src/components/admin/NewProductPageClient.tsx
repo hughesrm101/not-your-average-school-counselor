@@ -9,36 +9,11 @@ export default function NewProductPageClient() {
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const response = await fetch('/api/auth/me')
-        
-        if (!response.ok) {
-          router.push('/auth/login?redirect=/admin/products/new')
-          return
-        }
-
-        const { user: currentUser } = await response.json()
-        
-        // Check if user is admin by trying to access admin stats
-        const adminResponse = await fetch('/api/admin/stats')
-        if (!adminResponse.ok) {
-          router.push('/account')
-          return
-        }
-
-        setUser(currentUser)
-      } catch (error) {
-        console.error('Error loading user data:', error)
-        router.push('/auth/login?redirect=/admin/products/new')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadData()
-  }, [router])
+          useEffect(() => {
+            // For static export, we'll use mock data
+            setUser({ name: 'Admin', isAdmin: true })
+            setLoading(false)
+          }, [])
 
   if (loading) {
     return (

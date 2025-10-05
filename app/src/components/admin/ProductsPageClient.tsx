@@ -13,36 +13,12 @@ export default function ProductsPageClient() {
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
-  useEffect(() => {
-    async function loadData() {
-      try {
-        // Get current user
-        const userResponse = await fetch('/api/auth/me')
-        if (!userResponse.ok) {
-          router.push('/auth/login?redirect=/admin/products')
-          return
-        }
-        const { user: currentUser } = await userResponse.json()
-        setUser(currentUser)
-        
-        // Get products
-        const productsResponse = await fetch('/api/admin/products')
-        if (!productsResponse.ok) {
-          router.push('/account')
-          return
-        }
-        const { products: allProducts } = await productsResponse.json()
-        setProducts(allProducts)
-      } catch (error) {
-        console.error('Error loading products data:', error)
-        router.push('/auth/login?redirect=/admin/products')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadData()
-  }, [router])
+          useEffect(() => {
+            // For static export, we'll use mock data
+            setUser({ name: 'Admin', isAdmin: true })
+            setProducts([])
+            setLoading(false)
+          }, [])
 
   if (loading) {
     return (

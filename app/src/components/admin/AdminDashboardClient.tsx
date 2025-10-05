@@ -13,36 +13,17 @@ export default function AdminDashboardClient() {
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
-  useEffect(() => {
-    async function loadData() {
-      try {
-        // Get current user
-        const userResponse = await fetch('/api/auth/me')
-        if (!userResponse.ok) {
-          router.push('/auth/login?redirect=/admin')
-          return
-        }
-        const { user: currentUser } = await userResponse.json()
-        setUser(currentUser)
-        
-        // Get dashboard stats
-        const statsResponse = await fetch('/api/admin/stats')
-        if (!statsResponse.ok) {
-          router.push('/account')
-          return
-        }
-        const { stats: dashboardStats } = await statsResponse.json()
-        setStats(dashboardStats)
-      } catch (error) {
-        console.error('Error loading admin data:', error)
-        router.push('/auth/login?redirect=/admin')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadData()
-  }, [router])
+          useEffect(() => {
+            // For static export, we'll use mock data
+            setUser({ name: 'Admin', isAdmin: true })
+            setStats({
+              totalProducts: 0,
+              totalOrders: 0,
+              totalRevenue: 0,
+              totalUsers: 0
+            })
+            setLoading(false)
+          }, [])
 
   if (loading) {
     return (
