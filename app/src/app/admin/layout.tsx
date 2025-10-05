@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import AdminLayoutClient from '@/components/admin/AdminLayoutClient'
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic'; // Not compatible with static export
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard | NYASC',

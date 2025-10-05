@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import NewProductPageClient from '@/components/admin/NewProductPageClient'
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic'; // Not compatible with static export
 
 export const metadata: Metadata = {
   title: 'Add New Product | Admin | NYASC',

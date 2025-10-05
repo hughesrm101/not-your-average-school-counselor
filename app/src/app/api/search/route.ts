@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { searchAll } from '@/lib/meili';
 import { trackSearch } from '@/lib/analytics';
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic'; // Not compatible with static export
 
 export async function GET(request: NextRequest) {
   try {
