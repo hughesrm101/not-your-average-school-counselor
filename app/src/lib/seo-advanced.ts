@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 // Advanced SEO configuration for top 1% performance
 export const seoConfig = {
   siteName: 'Not Your Average School Counselor',
-  siteUrl: 'https://nyasc-counselor.com',
+  siteUrl: 'https://nyasc.co',
   defaultTitle: 'Not Your Average School Counselor - Professional Resources',
   titleTemplate: '%s | NYASC',
   defaultDescription: 'Professional school counselor resources, lesson plans, and tools. Evidence-based materials for elementary, middle, and high school counselors.',
@@ -257,7 +257,7 @@ export function generateOrganizationSchema() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'hello@nyasc-counselor.com',
+      email: 'hello@nyasc.co',
     },
   };
 }

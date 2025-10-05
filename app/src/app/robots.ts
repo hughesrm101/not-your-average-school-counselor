@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         '/test/',
       ],
     },
-    sitemap: 'https://nyasc-counselor.com/sitemap.xml',
-    host: 'https://nyasc-counselor.com',
+    sitemap: 'https://nyasc.co/sitemap.xml',
+    host: 'https://nyasc.co',
   }
 }

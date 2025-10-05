@@ -108,7 +108,7 @@ export default function RootLayout({
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'customer service',
-                email: 'hello@nyasc-counselor.com',
+                email: 'hello@nyasc.co',
               },
             }),
           }}
