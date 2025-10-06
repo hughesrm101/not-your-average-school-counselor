@@ -1,0 +1,140 @@
+[
+  {
+    "id": "bundle-1",
+    "slug": "nyasc-essential-counseling-resources-bundle",
+    "title": "NYASC Essential Counseling Resources Bundle",
+    "description": "Get all 5 of our most popular counseling resources in one comprehensive bundle! Perfect for new school counselors or those looking to expand their toolkit. Includes lesson plans, worksheets, newsletters, and collaboration materials.",
+    "shortDescription": "Complete bundle of 5 essential counseling resources - save 25%!",
+    "bundlePrice": 18.50,
+    "individualPrice": 24.50,
+    "savings": 6.00,
+    "status": "active",
+    "type": "bundle",
+    "categories": [
+      "Essential Resources",
+      "Bundle Deal"
+    ],
+    "tags": [
+      "bundle",
+      "essential resources",
+      "counseling toolkit",
+      "new counselor"
+    ],
+    "grades": [
+      "K-5",
+      "6-8",
+      "9-12"
+    ],
+    "featured": true,
+    "cover": "/images/bundles/nyasc-essential-bundle.jpg",
+    "products": [
+      "product-1",
+      "product-2", 
+      "product-3",
+      "product-4",
+      "product-5"
+    ],
+    "seo": {
+      "title": "NYASC Essential Counseling Resources Bundle - 5 Resources in 1",
+      "description": "Complete bundle of 5 essential school counseling resources including lesson plans, worksheets, newsletters, and collaboration materials. Save 25%!",
+      "keywords": [
+        "counseling bundle",
+        "school counselor resources",
+        "essential toolkit",
+        "bundle deal"
+      ]
+    },
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "bundle-2",
+    "slug": "social-emotional-learning-starter-pack",
+    "title": "Social Emotional Learning Starter Pack",
+    "description": "Everything you need to implement SEL in your school! This bundle includes our friendship lesson plan, mindful walking worksheets, and parent communication newsletters. Perfect for counselors focusing on social-emotional development.",
+    "shortDescription": "SEL-focused bundle with lesson plans, worksheets, and parent resources",
+    "bundlePrice": 12.25,
+    "individualPrice": 15.25,
+    "savings": 3.00,
+    "status": "active",
+    "type": "bundle",
+    "categories": [
+      "Social Emotional Learning",
+      "SEL Resources"
+    ],
+    "tags": [
+      "SEL",
+      "social emotional learning",
+      "friendship",
+      "mindfulness"
+    ],
+    "grades": [
+      "K-5",
+      "6-8"
+    ],
+    "featured": false,
+    "cover": "/images/bundles/sel-starter-pack.jpg",
+    "products": [
+      "product-1",
+      "product-2",
+      "product-4"
+    ],
+    "seo": {
+      "title": "Social Emotional Learning Starter Pack for School Counselors",
+      "description": "Complete SEL bundle with friendship lesson plans, mindful walking worksheets, and parent communication resources.",
+      "keywords": [
+        "SEL bundle",
+        "social emotional learning",
+        "friendship skills",
+        "mindfulness"
+      ]
+    },
+    "createdAt": "2024-01-05T00:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "bundle-3",
+    "slug": "behavior-management-toolkit",
+    "title": "Behavior Management Toolkit",
+    "description": "Essential resources for managing challenging behaviors in your school. Includes reflection worksheets for horseplay and fighting, plus parent communication newsletters to keep families informed and involved.",
+    "shortDescription": "Behavior management resources with reflection worksheets and parent communication",
+    "bundlePrice": 9.25,
+    "individualPrice": 11.25,
+    "savings": 2.00,
+    "status": "active",
+    "type": "bundle",
+    "categories": [
+      "Behavior Management",
+      "Discipline Resources"
+    ],
+    "tags": [
+      "behavior management",
+      "reflection worksheets",
+      "discipline",
+      "parent communication"
+    ],
+    "grades": [
+      "K-5",
+      "6-8",
+      "9-12"
+    ],
+    "featured": false,
+    "cover": "/images/bundles/behavior-management-toolkit.jpg",
+    "products": [
+      "product-2",
+      "product-3"
+    ],
+    "seo": {
+      "title": "Behavior Management Toolkit for School Counselors",
+      "description": "Essential behavior management resources including reflection worksheets and parent communication newsletters.",
+      "keywords": [
+        "behavior management",
+        "reflection worksheets",
+        "discipline resources",
+        "parent communication"
+      ]
+    },
+    "createdAt": "2024-01-08T00:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  }
+]

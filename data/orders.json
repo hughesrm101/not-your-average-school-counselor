@@ -1,0 +1,44 @@
+[
+  {
+    "id": "order-1",
+    "userId": "user-2",
+    "status": "completed",
+    "items": [
+      {
+        "productId": "product-1",
+        "title": "Social-Emotional Learning Toolkit",
+        "price": 49.99,
+        "quantity": 1,
+        "isBundle": false
+      }
+    ],
+    "subtotal": 49.99,
+    "tax": 4,
+    "total": 53.99,
+    "paymentMethod": "card",
+    "paymentId": "pi_test_1234567890",
+    "createdAt": "2024-01-10T14:30:00Z",
+    "completedAt": "2024-01-10T14:35:00Z"
+  },
+  {
+    "id": "order-2",
+    "userId": "user-2",
+    "status": "completed",
+    "items": [
+      {
+        "productId": "bundle-1",
+        "title": "Comprehensive Counseling Starter Pack",
+        "price": 129.99,
+        "quantity": 1,
+        "isBundle": true
+      }
+    ],
+    "subtotal": 129.99,
+    "tax": 10.4,
+    "total": 140.39,
+    "paymentMethod": "card",
+    "paymentId": "pi_test_0987654321",
+    "createdAt": "2024-01-12T09:15:00Z",
+    "completedAt": "2024-01-12T09:20:00Z"
+  }
+]
