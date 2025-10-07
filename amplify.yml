@@ -11,14 +11,10 @@ frontend:
         - echo "Building application..."
         - npm run build
         - echo "Build completed"
-        - ls -la out/
-        - echo "Adding aggressive cache-busting headers..."
-        - find out/ -name "*.html" -exec sed -i 's/<head>/<head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta http-equiv="Last-Modified" content="'$(date -u +"%a, %d %b %Y %H:%M:%S GMT")'">/g' {} \;
-        - echo "Adding cache-busting to all static files..."
-        - find out/ -type f \( -name "*.js" -o -name "*.css" \) -exec touch {} \;
-        - echo "Cache-busting complete"
+        - ls -la .next/
+        - echo "Build artifacts ready"
   artifacts:
-    baseDirectory: out
+    baseDirectory: .next
     files:
       - "**/*"
   cache:

@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Enable static export for Amplify
-  trailingSlash: true, // Required for static export
+  // WEB_COMPUTE platform - no static export needed
   serverExternalPackages: ['@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'],
   images: {
-    domains: ['localhost', 'nyasc.co', 'www.nyasc.co', 'd1xjae1oqckorv.amplifyapp.com'],
+    domains: ['localhost', 'nyasc.co', 'www.nyasc.co', 'd3kj01nwfb7c8w.amplifyapp.com'],
     formats: ['image/webp', 'image/avif'],
   },
   // Headers and rewrites not compatible with static export

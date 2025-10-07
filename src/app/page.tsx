@@ -11,17 +11,33 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Not Your Average School Counselor</h1>
+              <h1 className="text-2xl font-bold text-gray-900">
+                <Link href="/" className="hover:text-blue-600">
+                  Not Your Average School Counselor
+                </Link>
+              </h1>
             </div>
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
               <Link href="/shop" className="text-gray-700 hover:text-blue-600">Digital Resources</Link>
               <Link href="/merch" className="text-gray-700 hover:text-blue-600">Merchandise</Link>
               <Link href="/blog" className="text-gray-700 hover:text-blue-600">Blog</Link>
               <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Button variant="outline">Sign In</Button>
-              <Button>Get Started</Button>
+              <div className="hidden md:flex space-x-4">
+                <Button variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-medium">Sign In</Button>
+                <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
+              </div>
+            {/* Mobile menu button */}
+            <button 
+              className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+              aria-label="Open mobile menu"
+              aria-expanded="false"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
             </div>
           </div>
         </div>
@@ -33,23 +49,18 @@ export default function Home() {
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             Hey friend! 💙
           </h2>
-          <div className="bg-green-500 text-white p-4 rounded-lg mb-4">
-            <h3 className="text-lg font-bold">✅ WEBHOOK TEST - {new Date().toISOString()}</h3>
-            <p>If you see this GREEN box, the webhook is working!</p>
-            <p>Commit: {Math.random().toString(36).substr(2, 9)}</p>
-          </div>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             I see you there, juggling 500 things at once, trying to be everything to everyone. 
             Middle school is wild, right? Let me share what I've learned along the way - 
             the real stuff that actually works when you're in the thick of it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8 py-4">
+            <Button size="lg" className="text-lg px-8 py-4 bg-blue-600 hover:bg-blue-700">
               Check Out My Resources
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              Read My Stories
-            </Button>
+                    <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-medium">
+                      Read My Stories
+                    </Button>
           </div>
         </div>
       </section>
@@ -118,9 +129,11 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="overflow-hidden">
-              <div className="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
-                <span className="text-6xl">🧠</span>
-              </div>
+                      <div className="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                          <span className="text-2xl">🧠</span>
+                        </div>
+                      </div>
               <CardHeader>
                 <CardTitle>SEL Toolkit for Middle School</CardTitle>
                 <CardDescription>Because these kids are navigating hormones AND homework - they need different tools</CardDescription>
@@ -134,9 +147,11 @@ export default function Home() {
             </Card>
 
             <Card className="overflow-hidden">
-              <div className="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
-                <span className="text-6xl">💼</span>
-              </div>
+                      <div className="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                          <span className="text-2xl">💼</span>
+                        </div>
+                      </div>
               <CardHeader>
                 <CardTitle>Career Exploration for Middle School</CardTitle>
                 <CardDescription>When they're still deciding between astronaut and YouTuber - let's help them explore both</CardDescription>
@@ -150,9 +165,11 @@ export default function Home() {
             </Card>
 
             <Card className="overflow-hidden">
-              <div className="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
-                <span className="text-6xl">🧘</span>
-              </div>
+                      <div className="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                          <span className="text-2xl">🧘</span>
+                        </div>
+                      </div>
               <CardHeader>
                 <CardTitle>Mindfulness for Middle Schoolers</CardTitle>
                 <CardDescription>Because "just breathe" doesn't work when they're having a meltdown over a broken Snapchat streak</CardDescription>
@@ -223,9 +240,11 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="overflow-hidden">
-              <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center">
-                <span className="text-6xl">👕</span>
-              </div>
+                      <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                          <span className="text-2xl">👕</span>
+                        </div>
+                      </div>
               <CardHeader>
                 <CardTitle>Counselor T-Shirts</CardTitle>
                 <CardDescription>Comfortable tees with counselor pride</CardDescription>
@@ -239,9 +258,11 @@ export default function Home() {
             </Card>
 
             <Card className="overflow-hidden">
-              <div className="h-48 bg-gradient-to-r from-blue-400 to-green-400 flex items-center justify-center">
-                <span className="text-6xl">☕</span>
-              </div>
+                      <div className="h-48 bg-gradient-to-r from-blue-400 to-green-400 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                          <span className="text-2xl">☕</span>
+                        </div>
+                      </div>
               <CardHeader>
                 <CardTitle>Counselor Mugs</CardTitle>
                 <CardDescription>Perfect for your morning coffee</CardDescription>
@@ -255,9 +276,11 @@ export default function Home() {
             </Card>
 
             <Card className="overflow-hidden">
-              <div className="h-48 bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center">
-                <span className="text-6xl">🎒</span>
-              </div>
+                      <div className="h-48 bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                          <span className="text-2xl">🎒</span>
+                        </div>
+                      </div>
               <CardHeader>
                 <CardTitle>Counselor Bags</CardTitle>
                 <CardDescription>Carry your resources in style</CardDescription>
@@ -273,9 +296,9 @@ export default function Home() {
           
           <div className="text-center mt-8">
             <Link href="/merch">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                Shop All Merchandise
-              </Button>
+                      <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
+                        Shop All Merchandise
+                      </Button>
             </Link>
           </div>
         </div>
@@ -292,7 +315,7 @@ export default function Home() {
               placeholder="Enter your email" 
               className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-300"
             />
-            <Button variant="secondary" size="lg">Subscribe</Button>
+                    <Button variant="secondary" size="lg" className="bg-white text-blue-600 hover:bg-gray-100">Subscribe</Button>
           </div>
           </div>
         </section>
