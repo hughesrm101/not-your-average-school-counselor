@@ -277,4 +277,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Built with ❤️ for school counselors worldwide**
 
-*Not Your Average School Counselor - Professional resources for the modern counselor*
+*Not Your Average School Counselor - Professional resources for the modern counselor*# Deployment test Tue Oct  7 16:24:25 EDT 2025
