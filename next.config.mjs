@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // WEB_COMPUTE platform - no static export needed
+  output: 'export', // Enable static export for Amplify
+  trailingSlash: true, // Required for static export
   serverExternalPackages: ['@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'],
   images: {
     domains: ['localhost', 'nyasc.co', 'www.nyasc.co', 'd3kj01nwfb7c8w.amplifyapp.com'],
