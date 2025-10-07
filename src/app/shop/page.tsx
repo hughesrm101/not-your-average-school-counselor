@@ -1,5 +1,10 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { AddToCartButton } from '@/components/cart/AddToCartButton';
+import { CartIcon } from '@/components/cart/CartIcon';
+import { NewsletterSignup } from '@/components/newsletter/NewsletterSignup';
 
 export default function ShopPage() {
   return (
@@ -18,6 +23,7 @@ export default function ShopPage() {
               <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
             </nav>
             <div className="flex items-center space-x-4">
+              <CartIcon />
               <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">Sign In</Button>
               <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
             </div>
@@ -34,55 +40,292 @@ export default function ShopPage() {
           </p>
         </div>
 
-        {/* Coming Soon Section */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-8 mb-12">
-          <div className="text-center">
-            <h3 className="text-2xl font-semibold text-blue-900 mb-4">🚀 Coming Soon!</h3>
-            <p className="text-lg text-blue-700 mb-6">
-              We're putting the finishing touches on our digital resource library. 
-              Everything will be ready for download and immediate use in your office.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h4 className="font-semibold text-gray-900 mb-3">SEL Toolkits</h4>
-                <ul className="text-gray-600 space-y-2 text-sm">
-                  <li>• Social-Emotional Learning activities</li>
-                  <li>• Conflict resolution strategies</li>
-                  <li>• Peer relationship building</li>
-                  <li>• Self-awareness exercises</li>
-                </ul>
+        {/* Product Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {/* SEL Toolkit */}
+          <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Link href="/shop/sel-toolkit-middle-school">
+              <div className="h-64 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                <span className="text-6xl">🧠</span>
               </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h4 className="font-semibold text-gray-900 mb-3">Career Exploration</h4>
-                <ul className="text-gray-600 space-y-2 text-sm">
-                  <li>• Interest inventories</li>
-                  <li>• Career pathway activities</li>
-                  <li>• College prep resources</li>
-                  <li>• Skills assessment tools</li>
-                </ul>
+            </Link>
+            <CardHeader>
+              <CardTitle>
+                <Link href="/shop/sel-toolkit-middle-school" className="hover:text-blue-600">
+                  SEL Toolkit for Middle School
+                </Link>
+              </CardTitle>
+              <CardDescription>
+                Comprehensive social-emotional learning activities designed specifically for middle school students
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-2xl font-bold text-green-600">$29.99</span>
+                <Badge variant="secondary">Middle School</Badge>
               </div>
-            </div>
-          </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-gray-600">✓ 50+ Activities</p>
+                <p className="text-sm text-gray-600">✓ Ready-to-use worksheets</p>
+                <p className="text-sm text-gray-600">✓ Teacher guides included</p>
+              </div>
+                      <AddToCartButton 
+                        product={{
+                          id: "sel-toolkit",
+                          name: "SEL Toolkit for Middle School",
+                          description: "Comprehensive social-emotional learning activities designed specifically for middle school students",
+                          price: 29.99,
+                          category: "digital" as const,
+                          type: "resource" as const,
+                          status: "active" as const,
+                          images: [],
+                          tags: ["sel", "middle-school", "social-emotional"],
+                          createdAt: new Date().toISOString(),
+                          updatedAt: new Date().toISOString(),
+                        }}
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      />
+            </CardContent>
+          </Card>
+
+          {/* Career Exploration */}
+          <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Link href="/shop/career-exploration-middle-school">
+              <div className="h-64 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                <span className="text-6xl">💼</span>
+              </div>
+            </Link>
+            <CardHeader>
+              <CardTitle>
+                <Link href="/shop/career-exploration-middle-school" className="hover:text-blue-600">
+                  Career Exploration Toolkit
+                </Link>
+              </CardTitle>
+              <CardDescription>
+                Help students discover their interests and explore future career paths
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-2xl font-bold text-green-600">$19.99</span>
+                <Badge variant="secondary">Middle School</Badge>
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-gray-600">✓ Interest inventories</p>
+                <p className="text-sm text-gray-600">✓ Career pathway activities</p>
+                <p className="text-sm text-gray-600">✓ Skills assessment tools</p>
+              </div>
+                      <AddToCartButton 
+                        product={{
+                          id: "career-exploration",
+                          name: "Career Exploration Toolkit",
+                          description: "Help students discover their interests and explore future career paths",
+                          price: 19.99,
+                          category: "digital" as const,
+                          type: "resource" as const,
+                          status: "active" as const,
+                          images: [],
+                          tags: ["career", "middle-school", "exploration"],
+                          createdAt: new Date().toISOString(),
+                          updatedAt: new Date().toISOString(),
+                        }}
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      />
+            </CardContent>
+          </Card>
+
+          {/* Mindfulness Activities */}
+          <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Link href="/shop/mindfulness-middle-school">
+              <div className="h-64 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                <span className="text-6xl">🧘</span>
+              </div>
+            </Link>
+            <CardHeader>
+              <CardTitle>
+                <Link href="/shop/mindfulness-middle-school" className="hover:text-blue-600">
+                  Mindfulness for Middle Schoolers
+                </Link>
+              </CardTitle>
+              <CardDescription>
+                Calm strategies and mindfulness activities for stressed middle school students
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-2xl font-bold text-green-600">$24.99</span>
+                <Badge variant="secondary">Middle School</Badge>
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-gray-600">✓ Breathing exercises</p>
+                <p className="text-sm text-gray-600">✓ Stress management tools</p>
+                <p className="text-sm text-gray-600">✓ Guided meditation scripts</p>
+              </div>
+                      <AddToCartButton 
+                        product={{
+                          id: "mindfulness",
+                          name: "Mindfulness for Middle Schoolers",
+                          description: "Calm strategies and mindfulness activities for stressed middle school students",
+                          price: 24.99,
+                          category: "digital" as const,
+                          type: "resource" as const,
+                          status: "active" as const,
+                          images: [],
+                          tags: ["mindfulness", "middle-school", "stress-management"],
+                          createdAt: new Date().toISOString(),
+                          updatedAt: new Date().toISOString(),
+                        }}
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      />
+            </CardContent>
+          </Card>
+
+          {/* Conflict Resolution */}
+          <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Link href="/shop/conflict-resolution-middle-school">
+              <div className="h-64 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
+                <span className="text-6xl">🤝</span>
+              </div>
+            </Link>
+            <CardHeader>
+              <CardTitle>
+                <Link href="/shop/conflict-resolution-middle-school" className="hover:text-blue-600">
+                  Conflict Resolution Toolkit
+                </Link>
+              </CardTitle>
+              <CardDescription>
+                Teach students how to resolve conflicts peacefully and build better relationships
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-2xl font-bold text-green-600">$27.99</span>
+                <Badge variant="secondary">Middle School</Badge>
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-gray-600">✓ Role-play scenarios</p>
+                <p className="text-sm text-gray-600">✓ Communication strategies</p>
+                <p className="text-sm text-gray-600">✓ Peer mediation guides</p>
+              </div>
+                      <AddToCartButton 
+                        product={{
+                          id: "conflict-resolution",
+                          name: "Conflict Resolution Toolkit",
+                          description: "Teach students how to resolve conflicts peacefully and build better relationships",
+                          price: 27.99,
+                          category: "digital" as const,
+                          type: "resource" as const,
+                          status: "active" as const,
+                          images: [],
+                          tags: ["conflict-resolution", "middle-school", "relationships"],
+                          createdAt: new Date().toISOString(),
+                          updatedAt: new Date().toISOString(),
+                        }}
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      />
+            </CardContent>
+          </Card>
+
+          {/* Study Skills */}
+          <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Link href="/shop/study-skills-middle-school">
+              <div className="h-64 bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center">
+                <span className="text-6xl">📚</span>
+              </div>
+            </Link>
+            <CardHeader>
+              <CardTitle>
+                <Link href="/shop/study-skills-middle-school" className="hover:text-blue-600">
+                  Study Skills Mastery
+                </Link>
+              </CardTitle>
+              <CardDescription>
+                Help students develop effective study habits and academic success strategies
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-2xl font-bold text-green-600">$22.99</span>
+                <Badge variant="secondary">Middle School</Badge>
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-gray-600">✓ Time management tools</p>
+                <p className="text-sm text-gray-600">✓ Note-taking strategies</p>
+                <p className="text-sm text-gray-600">✓ Test preparation guides</p>
+              </div>
+                      <AddToCartButton 
+                        product={{
+                          id: "study-skills",
+                          name: "Study Skills Mastery",
+                          description: "Help students develop effective study habits and academic success strategies",
+                          price: 22.99,
+                          category: "digital" as const,
+                          type: "resource" as const,
+                          status: "active" as const,
+                          images: [],
+                          tags: ["study-skills", "middle-school", "academic-success"],
+                          createdAt: new Date().toISOString(),
+                          updatedAt: new Date().toISOString(),
+                        }}
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      />
+            </CardContent>
+          </Card>
+
+          {/* Goal Setting */}
+          <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Link href="/shop/goal-setting-middle-school">
+              <div className="h-64 bg-gradient-to-r from-indigo-400 to-indigo-600 flex items-center justify-center">
+                <span className="text-6xl">🎯</span>
+              </div>
+            </Link>
+            <CardHeader>
+              <CardTitle>
+                <Link href="/shop/goal-setting-middle-school" className="hover:text-blue-600">
+                  Goal Setting Workshop
+                </Link>
+              </CardTitle>
+              <CardDescription>
+                Teach students how to set, track, and achieve meaningful goals
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-2xl font-bold text-green-600">$26.99</span>
+                <Badge variant="secondary">Middle School</Badge>
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-gray-600">✓ SMART goal templates</p>
+                <p className="text-sm text-gray-600">✓ Progress tracking tools</p>
+                <p className="text-sm text-gray-600">✓ Motivation strategies</p>
+              </div>
+                      <AddToCartButton 
+                        product={{
+                          id: "goal-setting",
+                          name: "Goal Setting Workshop",
+                          description: "Teach students how to set, track, and achieve meaningful goals",
+                          price: 26.99,
+                          category: "digital" as const,
+                          type: "resource" as const,
+                          status: "active" as const,
+                          images: [],
+                          tags: ["goal-setting", "middle-school", "motivation"],
+                          createdAt: new Date().toISOString(),
+                          updatedAt: new Date().toISOString(),
+                        }}
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      />
+            </CardContent>
+          </Card>
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-blue-600 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-bold text-white mb-4">Get Notified When We Launch</h3>
-          <p className="text-blue-100 mb-6">
-            Be the first to know when our digital resources are ready. 
-            Plus, get exclusive early access and special pricing.
-          </p>
-          <div className="max-w-md mx-auto flex gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-300"
-            />
-            <Button className="bg-white text-blue-600 hover:bg-gray-100">
-              Notify Me
-            </Button>
-          </div>
-        </div>
+        <NewsletterSignup 
+          title="Get More Resources Like This"
+          description="Join our community and get early access to new resources, plus exclusive tips and strategies."
+          source="shop-page"
+          className="bg-gradient-to-r from-blue-600 to-indigo-600 border-blue-500"
+        />
       </div>
     </div>
   );

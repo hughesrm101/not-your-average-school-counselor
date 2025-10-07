@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("source-map-support/register");
+const cdk = require("aws-cdk-lib");
+const infra_stack_1 = require("../lib/infra-stack");
+const app = new cdk.App();
+// Environment configuration
+const env = {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION || 'us-east-1',
+};
+// Main infrastructure stack
+new infra_stack_1.NyascInfrastructureStack(app, 'NyascInfrastructureStack', {
+    env,
+    description: 'NYASC Platform Infrastructure - Cognito, DynamoDB, S3, SES, CloudFront, and supporting services',
+    tags: {
+        Project: 'NYASC',
+        Environment: 'Production',
+        Owner: 'NYASC Team',
+    },
+});
+app.synth();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5mcmEuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9iaW4vaW5mcmEudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQ0EsdUNBQXFDO0FBQ3JDLG1DQUFtQztBQUNuQyxvREFBOEQ7QUFFOUQsTUFBTSxHQUFHLEdBQUcsSUFBSSxHQUFHLENBQUMsR0FBRyxFQUFFLENBQUM7QUFFMUIsNEJBQTRCO0FBQzVCLE1BQU0sR0FBRyxHQUFHO0lBQ1YsT0FBTyxFQUFFLE9BQU8sQ0FBQyxHQUFHLENBQUMsbUJBQW1CO0lBQ3hDLE1BQU0sRUFBRSxPQUFPLENBQUMsR0FBRyxDQUFDLGtCQUFrQixJQUFJLFdBQVc7Q0FDdEQsQ0FBQztBQUVGLDRCQUE0QjtBQUM1QixJQUFJLHNDQUF3QixDQUFDLEdBQUcsRUFBRSwwQkFBMEIsRUFBRTtJQUM1RCxHQUFHO0lBQ0gsV0FBVyxFQUFFLGlHQUFpRztJQUM5RyxJQUFJLEVBQUU7UUFDSixPQUFPLEVBQUUsT0FBTztRQUNoQixXQUFXLEVBQUUsWUFBWTtRQUN6QixLQUFLLEVBQUUsWUFBWTtLQUNwQjtDQUNGLENBQUMsQ0FBQztBQUVILEdBQUcsQ0FBQyxLQUFLLEVBQUUsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIiMhL3Vzci9iaW4vZW52IG5vZGVcbmltcG9ydCAnc291cmNlLW1hcC1zdXBwb3J0L3JlZ2lzdGVyJztcbmltcG9ydCAqIGFzIGNkayBmcm9tICdhd3MtY2RrLWxpYic7XG5pbXBvcnQgeyBOeWFzY0luZnJhc3RydWN0dXJlU3RhY2sgfSBmcm9tICcuLi9saWIvaW5mcmEtc3RhY2snO1xuXG5jb25zdCBhcHAgPSBuZXcgY2RrLkFwcCgpO1xuXG4vLyBFbnZpcm9ubWVudCBjb25maWd1cmF0aW9uXG5jb25zdCBlbnYgPSB7XG4gIGFjY291bnQ6IHByb2Nlc3MuZW52LkNES19ERUZBVUxUX0FDQ09VTlQsXG4gIHJlZ2lvbjogcHJvY2Vzcy5lbnYuQ0RLX0RFRkFVTFRfUkVHSU9OIHx8ICd1cy1lYXN0LTEnLFxufTtcblxuLy8gTWFpbiBpbmZyYXN0cnVjdHVyZSBzdGFja1xubmV3IE55YXNjSW5mcmFzdHJ1Y3R1cmVTdGFjayhhcHAsICdOeWFzY0luZnJhc3RydWN0dXJlU3RhY2snLCB7XG4gIGVudixcbiAgZGVzY3JpcHRpb246ICdOWUFTQyBQbGF0Zm9ybSBJbmZyYXN0cnVjdHVyZSAtIENvZ25pdG8sIER5bmFtb0RCLCBTMywgU0VTLCBDbG91ZEZyb250LCBhbmQgc3VwcG9ydGluZyBzZXJ2aWNlcycsXG4gIHRhZ3M6IHtcbiAgICBQcm9qZWN0OiAnTllBU0MnLFxuICAgIEVudmlyb25tZW50OiAnUHJvZHVjdGlvbicsXG4gICAgT3duZXI6ICdOWUFTQyBUZWFtJyxcbiAgfSxcbn0pO1xuXG5hcHAuc3ludGgoKTtcbiJdfQ==

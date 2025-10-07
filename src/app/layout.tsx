@@ -3,6 +3,7 @@ import './globals.css'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { CartProvider } from '@/contexts/CartContext'
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo-advanced'
+import { Analytics } from '@/components/analytics/Analytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,13 +29,14 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563eb" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={inter.className}>
-        <AuthProvider>
-          <CartProvider>
-            {children}
-          </CartProvider>
-        </AuthProvider>
-      </body>
+              <body className={inter.className}>
+                <Analytics />
+                <AuthProvider>
+                  <CartProvider>
+                    {children}
+                  </CartProvider>
+                </AuthProvider>
+              </body>
     </html>
   )
 }

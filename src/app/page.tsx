@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { AddToCartButton } from '@/components/cart/AddToCartButton';
+import { CartIcon } from '@/components/cart/CartIcon';
+import { NewsletterSignup } from '@/components/newsletter/NewsletterSignup';
 
 export default function Home() {
   return (
@@ -23,11 +26,12 @@ export default function Home() {
               <Link href="/blog" className="text-gray-700 hover:text-blue-600">Blog</Link>
               <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
             </nav>
-            <div className="flex items-center space-x-4">
-              <div className="hidden md:flex space-x-4">
-                <Button variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-medium">Sign In</Button>
-                <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
-              </div>
+                    <div className="flex items-center space-x-4">
+                      <CartIcon />
+                      <div className="hidden md:flex space-x-4">
+                        <Button variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-medium">Sign In</Button>
+                        <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
+                      </div>
             {/* Mobile menu button */}
             <button 
               className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
@@ -304,21 +308,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl font-bold text-white mb-4">Let's be friends</h3>
-          <p className="text-xl text-blue-100 mb-8">Get my latest resources and the real stories behind them - the good, the messy, and the "what was I thinking" moments</p>
-          <div className="max-w-md mx-auto flex gap-4">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-300"
-            />
-                    <Button variant="secondary" size="lg" className="bg-white text-blue-600 hover:bg-gray-100">Subscribe</Button>
-          </div>
-          </div>
-        </section>
+              {/* Newsletter */}
+              <section className="py-16 bg-blue-600">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <NewsletterSignup 
+                    source="homepage"
+                    className="bg-blue-600 border-blue-500"
+                  />
+                </div>
+              </section>
         
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
