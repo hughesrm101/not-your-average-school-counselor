@@ -3,18 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Starting build process..."
         - npm ci
-        - echo "Dependencies installed"
     build:
       commands:
-        - echo "Building application..."
         - npm run build
-        - echo "Build completed"
-        - ls -la out/
-        - echo "Build artifacts ready"
   artifacts:
-    baseDirectory: out
+    baseDirectory: .next
     files:
       - "**/*"
   cache:
