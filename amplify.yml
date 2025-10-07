@@ -12,6 +12,9 @@ frontend:
         - npm run build
         - echo "Build completed"
         - ls -la out/
+        - echo "Adding cache-busting headers..."
+        - find out/ -name "*.html" -exec sed -i 's/<head>/<head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">/g' {} \;
+        - echo "Cache-busting headers added"
   artifacts:
     baseDirectory: out
     files:
