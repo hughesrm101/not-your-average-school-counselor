@@ -2,9 +2,7 @@
 const nextConfig = {
   // output: 'export', // Removed for WEB_COMPUTE compatibility
   // trailingSlash: true, // Removed for WEB_COMPUTE compatibility
-  experimental: {
-    serverComponentsExternalPackages: ['@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'],
-  },
+  serverExternalPackages: ['@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'],
   images: {
     domains: ['localhost', 'nyasc.co', 'www.nyasc.co', 'd1xjae1oqckorv.amplifyapp.com'],
     formats: ['image/webp', 'image/avif'],

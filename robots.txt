@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /account/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /test/
+
+Host: https://nyasc.co
+Sitemap: https://nyasc.co/sitemap.xml

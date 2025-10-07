@@ -1,83 +1,46 @@
-import { Suspense } from 'react';
-import { Metadata } from 'next';
-import { homeSEO } from '@/lib/seo';
-import { generateOrganizationStructuredData, generateWebsiteStructuredData } from '@/lib/seo';
-import Hero from '@/components/marketing/Hero';
-import FeatureCards from '@/components/marketing/FeatureCards';
-import NewsletterForm from '@/components/marketing/NewsletterForm';
-import Testimonials from '@/components/marketing/Testimonials';
-import FeaturedBlog from '@/components/marketing/FeaturedBlog';
-import FeaturedProducts from '@/components/marketing/FeaturedProducts';
-import StatsSection from '@/components/marketing/StatsSection';
-import HowItWorks from '@/components/marketing/HowItWorks';
-import PricingSection from '@/components/marketing/PricingSection';
-import CTASection from '@/components/marketing/CTASection';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-
-export const metadata: Metadata = {
-  title: homeSEO.title,
-  description: homeSEO.description,
-};
-
-export default function HomePage() {
-  const organizationStructuredData = generateOrganizationStructuredData();
-  const websiteStructuredData = generateWebsiteStructuredData();
-
+export default function Home() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteStructuredData),
-        }}
-      />
-      
-      <Header />
-      
-      <main className="flex-1">
-        <Hero />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="text-center max-w-4xl mx-auto px-4">
+        <h1 className="text-6xl font-bold text-gray-900 mb-6">
+          Not Your Average School Counselor
+        </h1>
+        <p className="text-2xl text-gray-600 mb-8">
+          Professional resources for school counselors
+        </p>
+        <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">
+          Evidence-based resources, lesson plans, and tools designed for real school counselors who need real solutions.
+        </p>
+        <div className="space-x-4">
+          <a 
+            href="/shop" 
+            className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
+          >
+            Shop Resources
+          </a>
+          <a 
+            href="/blog" 
+            className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors text-lg font-semibold border-2 border-blue-600"
+          >
+            Read Blog
+          </a>
+        </div>
         
-        <section className="section-padding bg-nyasc-gray-50">
-          <div className="container-custom">
-            <FeatureCards />
+        <div className="mt-16 grid md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">Evidence-Based</h3>
+            <p className="text-gray-600">Resources tested in real schools, designed for real impact.</p>
           </div>
-        </section>
-        
-        <section className="section-padding">
-          <div className="container-custom">
-            <Suspense fallback={<div>Loading featured products...</div>}>
-              <FeaturedProducts />
-            </Suspense>
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">Practical Tools</h3>
+            <p className="text-gray-600">Ready-to-use lesson plans, activities, and guides.</p>
           </div>
-        </section>
-        
-        <section className="section-padding bg-nyasc-gray-50">
-          <div className="container-custom">
-            <Testimonials />
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">Community Driven</h3>
+            <p className="text-gray-600">Built by counselors, for counselors. Your voice matters.</p>
           </div>
-        </section>
-        
-        <section className="section-padding">
-          <div className="container-custom">
-            <PricingSection />
-          </div>
-        </section>
-        
-        <section className="section-padding bg-nyasc-blue-900 text-white">
-          <div className="container-custom">
-            <NewsletterForm />
-          </div>
-        </section>
-      </main>
-      
-      <Footer />
-    </>
-  );
+        </div>
+      </div>
+    </div>
+  )
 }
