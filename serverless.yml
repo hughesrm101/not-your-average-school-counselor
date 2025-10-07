@@ -1,0 +1,41 @@
+service: nyasc-platform
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: ${opt:stage, 'prod'}
+  environment:
+    NODE_ENV: production
+    NEXT_PUBLIC_APP_URL: https://nyasc.co
+    NEXT_PUBLIC_AWS_REGION: us-east-1
+    NEXT_PUBLIC_DYNAMODB_TABLE: nyasc-platform
+    NEXT_PUBLIC_GA4_MEASUREMENT_ID: G-2B3QC5VD37
+    NEXTAUTH_SECRET: nyasc-super-secret-key-2024-production
+    NEXTAUTH_URL: https://nyasc.co
+
+plugins:
+  - serverless-nextjs-plugin
+
+custom:
+  serverless-nextjs:
+    build:
+      env:
+        NODE_ENV: production
+        NEXT_PUBLIC_APP_URL: https://nyasc.co
+        NEXT_PUBLIC_AWS_REGION: us-east-1
+        NEXT_PUBLIC_DYNAMODB_TABLE: nyasc-platform
+        NEXT_PUBLIC_GA4_MEASUREMENT_ID: G-2B3QC5VD37
+        NEXTAUTH_SECRET: nyasc-super-secret-key-2024-production
+        NEXTAUTH_URL: https://nyasc.co
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+      - http:
+          path: /
+          method: ANY

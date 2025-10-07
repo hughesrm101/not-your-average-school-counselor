@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   serverExternalPackages: ['@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'],
   images: {
     domains: ['localhost', 'nyasc.co', 'www.nyasc.co', 'd3kj01nwfb7c8w.amplifyapp.com'],

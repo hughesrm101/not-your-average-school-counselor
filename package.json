@@ -30,6 +30,7 @@
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.0.2",
+    "@sls-next/serverless-component": "^3.7.0",
     "@stripe/stripe-js": "^2.1.11",
     "amazon-cognito-identity-js": "^6.3.6",
     "aws-jwt-verify": "^4.0.1",

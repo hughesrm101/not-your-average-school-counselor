@@ -1,0 +1,46 @@
+{
+  "ServiceName": "nyasc-platform-app",
+  "SourceConfiguration": {
+    "CodeRepository": {
+      "RepositoryUrl": "https://github.com/hughesrm101/not-your-average-school-counselor.git",
+      "SourceCodeVersion": {
+        "Type": "BRANCH",
+        "Value": "main"
+      },
+      "SourceDirectory": "/",
+      "CodeConfiguration": {
+        "ConfigurationSource": "REPOSITORY",
+        "CodeConfigurationValues": {
+          "Runtime": "NODEJS_18",
+          "BuildCommand": "npm ci && npm run build",
+          "StartCommand": "npm start"
+        }
+      }
+    },
+    "AutoDeploymentsEnabled": true
+  },
+  "InstanceConfiguration": {
+    "Cpu": "0.25 vCPU",
+    "Memory": "0.5 GB",
+    "InstanceRoleArn": "arn:aws:iam::170882530188:role/AppRunnerInstanceRole"
+  },
+  "AutoScalingConfigurationArn": "arn:aws:apprunner:us-east-1:170882530188:autoscalingconfiguration/DefaultConfiguration/1/00000000000000000000000000000001",
+  "HealthCheckConfiguration": {
+    "Protocol": "HTTP",
+    "Path": "/",
+    "Interval": 10,
+    "Timeout": 5,
+    "HealthyThreshold": 1,
+    "UnhealthyThreshold": 5
+  },
+  "Tags": [
+    {
+      "Key": "Environment",
+      "Value": "production"
+    },
+    {
+      "Key": "Project",
+      "Value": "nyasc-platform"
+    }
+  ]
+}
