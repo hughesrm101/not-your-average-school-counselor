@@ -14,10 +14,10 @@ export default function Home() {
               <h1 className="text-2xl font-bold text-gray-900">Not Your Average School Counselor</h1>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link href="/shop" className="text-gray-700 hover:text-blue-600">Shop</Link>
+              <Link href="/shop" className="text-gray-700 hover:text-blue-600">Digital Resources</Link>
+              <Link href="/merch" className="text-gray-700 hover:text-blue-600">Merchandise</Link>
               <Link href="/blog" className="text-gray-700 hover:text-blue-600">Blog</Link>
               <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
             </nav>
             <div className="flex items-center space-x-4">
               <Button variant="outline">Sign In</Button>
@@ -209,6 +209,74 @@ export default function Home() {
           </div>
         </section>
         
+      {/* Merchandise Section */}
+      <section className="py-16 bg-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Show your counselor pride</h3>
+            <p className="text-lg text-gray-600">Custom merchandise designed just for you</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="overflow-hidden">
+              <div className="h-48 bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center">
+                <span className="text-6xl">👕</span>
+              </div>
+              <CardHeader>
+                <CardTitle>Counselor T-Shirts</CardTitle>
+                <CardDescription>Comfortable tees with counselor pride</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex justify-between items-center">
+                  <span className="text-2xl font-bold text-green-600">$24.99</span>
+                  <Badge variant="secondary">Apparel</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden">
+              <div className="h-48 bg-gradient-to-r from-blue-400 to-green-400 flex items-center justify-center">
+                <span className="text-6xl">☕</span>
+              </div>
+              <CardHeader>
+                <CardTitle>Counselor Mugs</CardTitle>
+                <CardDescription>Perfect for your morning coffee</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex justify-between items-center">
+                  <span className="text-2xl font-bold text-green-600">$19.99</span>
+                  <Badge variant="secondary">Drinkware</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden">
+              <div className="h-48 bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center">
+                <span className="text-6xl">🎒</span>
+              </div>
+              <CardHeader>
+                <CardTitle>Counselor Bags</CardTitle>
+                <CardDescription>Carry your resources in style</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex justify-between items-center">
+                  <span className="text-2xl font-bold text-green-600">$34.99</span>
+                  <Badge variant="secondary">Accessories</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link href="/merch">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                Shop All Merchandise
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter */}
       <section className="py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
