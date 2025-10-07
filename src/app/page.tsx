@@ -33,7 +33,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             Hey friend! 💙
           </h2>
-          <p className="text-sm text-gray-500 mb-4">🚨 EMERGENCY CACHE CLEAR: {Math.random().toString(36).substr(2, 9)} - {new Date().toISOString()}</p>
+          <p className="text-sm text-gray-500 mb-4">🎯 AMPLIFY CACHE BYPASS: {Math.random().toString(36).substr(2, 9)} - {new Date().toISOString()}</p>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             I see you there, juggling 500 things at once, trying to be everything to everyone. 
             Middle school is wild, right? Let me share what I've learned along the way - 
