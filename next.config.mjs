@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Removed for WEB_COMPUTE compatibility
-  // trailingSlash: true, // Removed for WEB_COMPUTE compatibility
+  output: 'export', // Enable static export for Amplify
+  trailingSlash: true, // Required for static export
   serverExternalPackages: ['@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb'],
   images: {
     domains: ['localhost', 'nyasc.co', 'www.nyasc.co', 'd1xjae1oqckorv.amplifyapp.com'],
